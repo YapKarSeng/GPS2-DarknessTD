@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  hp: 100
+  hp: 200
   EarnMoney: 100
 --- !u!1 &7761281741453462006
 GameObject:

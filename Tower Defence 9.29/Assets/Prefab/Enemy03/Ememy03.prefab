@@ -443,7 +443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 35
-  hp: 150
+  hp: 300
+  EarnMoney: 20
 --- !u!1 &8355026195923763109
 GameObject:
   m_ObjectHideFlags: 0

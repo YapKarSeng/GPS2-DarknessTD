@@ -64,7 +64,6 @@ public class EnemyRight : MonoBehaviour
     void Die()
     {
         PlayerStats.Money += EarnMoney;
-        Debug.Log("Money: " );
         GameObject.Destroy(this.gameObject);
     }
 }
