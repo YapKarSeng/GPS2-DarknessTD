@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     private Slider hpSlider;
     private Transform[] positions;
     private int index = 0;
+    public int EarnMoney = 10;
 
     void Start()
     {
@@ -56,12 +58,15 @@ public class Enemy : MonoBehaviour
         hp -= damage;
         hpSlider.value = (float)hp / totalHp;
         if (hp <= 0)
-        {
+        {          
             Die();
         }
+       
     }
     void Die()
     {
+        PlayerStats.Money += EarnMoney;
         GameObject.Destroy(this.gameObject);
+        
     }
 }

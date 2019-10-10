@@ -480,3 +480,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   hp: 100
+  EarnMoney: 100

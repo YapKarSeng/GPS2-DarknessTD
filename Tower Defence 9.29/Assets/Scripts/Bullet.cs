@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float expRadius = 0f;
     [SerializeField] private GameObject impactEffect;
+    public int EarnMoney = 10;
 
 
     public void Chase(Transform _target)
@@ -71,7 +72,8 @@ public class Bullet : MonoBehaviour
             Damage(target);
         }
 
-        Destroy(target.gameObject);
+        //Destroy(target.gameObject);
+        //PlayerStats.Money += EarnMoney;
         Destroy(gameObject);
     }
 
@@ -89,7 +91,7 @@ public class Bullet : MonoBehaviour
             Damage(target);
         }
 
-        Destroy(target.gameObject);
+        //Destroy(target.gameObject);
         Destroy(gameObject);
     }
 
@@ -107,7 +109,13 @@ public class Bullet : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        Destroy(enemy.gameObject);
+        //Destroy(enemy.gameObject);
+        Enemy e = enemy.GetComponent<Enemy>();
+
+        if(e != null)
+        {
+            e.TakeDamage(damage);
+        }
     }
 
     void Die()

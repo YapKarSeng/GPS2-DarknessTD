@@ -11,6 +11,7 @@ public class EnemyRight : MonoBehaviour
     private Slider hpSlider;
     private Transform[] positions;
     private int index = 0;
+    public int EarnMoney = 10;
 
     void Start()
     {
@@ -62,6 +63,8 @@ public class EnemyRight : MonoBehaviour
     }
     void Die()
     {
+        PlayerStats.Money += EarnMoney;
+        Debug.Log("Money: " );
         GameObject.Destroy(this.gameObject);
     }
 }
