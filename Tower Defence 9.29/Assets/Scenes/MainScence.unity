@@ -6391,7 +6391,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 2048.0625, y: 134217730, z: 2.524355e-29, w: 6.3108872e-30}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -7192,7 +7192,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &789408947
 PrefabInstance:
@@ -10409,6 +10409,7 @@ GameObject:
   - component: {fileID: 1079335187}
   - component: {fileID: 1079335189}
   - component: {fileID: 1079335190}
+  - component: {fileID: 1079335191}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10501,7 +10502,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 400
-  startLives: 12
+  startLives: 1
+--- !u!114 &1079335191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079335186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e940566436c4ddc4bb33b72d4a37447a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1083131722
 GameObject:
   m_ObjectHideFlags: 0
@@ -19230,12 +19243,12 @@ PrefabInstance:
     - target: {fileID: 6659988275414333588, guid: ee4c9b318ed574745af6153d987b8173,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 37.6
+      value: 66.6
       objectReference: {fileID: 0}
     - target: {fileID: 6659988275414333588, guid: ee4c9b318ed574745af6153d987b8173,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6659988275414333588, guid: ee4c9b318ed574745af6153d987b8173,
         type: 3}
