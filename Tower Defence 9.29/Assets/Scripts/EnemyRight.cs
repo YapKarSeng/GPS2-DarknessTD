@@ -41,6 +41,7 @@ public class EnemyRight : MonoBehaviour
 
     void ReachDestination()//Link with improve founction 01(EnemySpawner) - When Enemy arrive at end point
     {
+        PlayerStats.Lives--;
         GameObject.Destroy(this.gameObject);
     }
 
