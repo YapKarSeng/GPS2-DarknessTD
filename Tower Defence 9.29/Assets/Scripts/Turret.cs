@@ -9,6 +9,7 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public Transform partToRotate;
+    public bool isActivated = false;
 
     [SerializeField] private float range = 15f;
     [SerializeField] private string enemyTag = "Enemy";
@@ -59,13 +60,14 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turningSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if (fireCountdown <= 0f)
+        if (fireCountdown <= 0f && isActivated == true)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;
+        isActivated = false;
     }
 
     void Shoot()
@@ -83,5 +85,10 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public void Activateturret()
+    {
+        isActivated = true;
     }
 }

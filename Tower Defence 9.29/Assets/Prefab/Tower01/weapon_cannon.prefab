@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7200807215902172124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PartToRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1192154443198013199}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: firePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1468850821028112322}
   - component: {fileID: 3676098984653923714}
   - component: {fileID: 8686853853863019638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7536787926278209496}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,8 @@ GameObject:
   - component: {fileID: 2930383582702316515}
   - component: {fileID: 8905403431604213530}
   - component: {fileID: 1192154442921512870}
-  m_Layer: 0
+  - component: {fileID: 9067729150174697272}
+  m_Layer: 8
   m_Name: weapon_cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +267,21 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 1192154443198013199}
   partToRotate: {fileID: 7200807215902172124}
+  isActivated: 0
   range: 25
   enemyTag: Enemy
   turningSpeed: 10
   fireRate: 2
+--- !u!65 &9067729150174697272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181709993455018950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6094651, y: 1.1023662, z: 1.6094651}
+  m_Center: {x: 0, y: 0.5511831, z: 0}
