@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     BuildManager buildManager;
 
     public TurrentBlueprint standardTurrent;
+    public TurrentBlueprint rocketTurrent;
 
     
 
@@ -31,6 +32,7 @@ public class Shop : MonoBehaviour
         
     public void PurchaseRocketTurrent()
     {
-
+        buildManager.SelectTurrentBuild(rocketTurrent);
+        buildManager.afterBuild = false;
     }
 }

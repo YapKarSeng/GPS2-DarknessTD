@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float expRadius = 0f;
     [SerializeField] private GameObject impactEffect;
-    public int EarnMoney = 10;
 
 
     public void Chase(Transform _target)
