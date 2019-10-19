@@ -291,9 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6a22b840b9ba64e95f611e763e8ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1
   hp: 200
-  EarnMoney: 10
+  EarnMoney: 5
 --- !u!1 &7119206715603023487
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,6 @@ public class WinCheck : MonoBehaviour
 
     void EndGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
