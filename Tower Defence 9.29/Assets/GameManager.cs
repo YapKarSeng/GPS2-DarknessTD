@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        Time.timeScale = 0;
         WinUI.SetActive(true);
         winMessage.text = "WIN!";
     }
