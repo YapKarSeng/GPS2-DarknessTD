@@ -12,8 +12,15 @@ public class EnemySpawner : MonoBehaviour
     public float waveRate = 0.3f;
     public float waveRateRight = 1f;
 
+   
     void Start()
     {
+        StartCoroutine(WaitPlayer());      
+    }
+
+    IEnumerator WaitPlayer()
+    {
+        yield return new WaitForSecondsRealtime(13);
         StartCoroutine(SpawnEnemy());
         StartCoroutine(SpawnEnemyRight());
     }
