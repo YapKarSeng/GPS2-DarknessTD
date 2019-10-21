@@ -6,17 +6,24 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     private Transform target;
+    private Enemy targetEnemy;
+    private EnemyRight targetEnemyRight;
+
+    [Header("Setup Unity")]
     public GameObject bulletPrefab;
     public Transform firePoint;
     public Transform partToRotate;
+    [SerializeField] private string enemyTag = "Enemy";
     public bool isActivated = false;
 
-    [SerializeField] private float range = 15f;
-    [SerializeField] private string enemyTag = "Enemy";
+    [Header("Stats")]
+    [SerializeField] private float range = 15f;   
     [SerializeField] private float turningSpeed;
     [SerializeField] private float fireRate;
-
     private float fireCountdown = 0f;
+    public bool useLaser = false;
+    [SerializeField] private int damageOverTime = 30;
+    public LineRenderer lineRenderer;
 
     void Start()
     {
@@ -42,6 +49,8 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
+            targetEnemyRight = nearestEnemy.GetComponent<EnemyRight>();
         }
         else
         {
@@ -52,22 +61,54 @@ public class Turret : MonoBehaviour
     void Update()
     {
         if (target == null)
+        {
+            if(useLaser)
+            {
+                if(lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = false;
+                }
+            }
             return;
+        }
 
-        //Locking target
+        lockingTarget();
+        
+        if(useLaser)
+        {
+            Laser();
+        }
+        else
+        {
+            if (fireCountdown <= 0f && isActivated == true)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+
+            fireCountdown -= Time.deltaTime;
+            isActivated = false;
+        }
+        
+    }
+
+    void lockingTarget()
+    {
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turningSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+    void Laser()
+    {
+        target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
 
-        if (fireCountdown <= 0f && isActivated == true)
-        {
-            Shoot();
-            fireCountdown = 1f / fireRate;
-        }
 
-        fireCountdown -= Time.deltaTime;
-        isActivated = false;
+        if (!lineRenderer.enabled)
+            lineRenderer.enabled = true;
+
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
     }
 
     void Shoot()
