@@ -28,6 +28,14 @@ public class EnemySpawner : MonoBehaviour
         Time.timeScale = 1;
         yield return new WaitForSecondsRealtime(13);
         StartCoroutine(SpawnEnemy());
+        StartCoroutine(WaitEnemySpawn());
+        //StartCoroutine(SpawnEnemyRight());
+    }
+
+    IEnumerator WaitEnemySpawn()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSecondsRealtime(6);
         StartCoroutine(SpawnEnemyRight());
     }
 
@@ -78,5 +86,13 @@ public class EnemySpawner : MonoBehaviour
         yield return 0;
         GameManager.Instance.Win();
     }
+
+    /*void EnemyAllDead()
+    {
+        while (CountEnemyAlive <= 0)
+        {
+            GameManager.Instance.Win();
+        }
+    }*/
 }
 
