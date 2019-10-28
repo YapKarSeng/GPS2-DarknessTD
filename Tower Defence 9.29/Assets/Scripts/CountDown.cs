@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
@@ -15,36 +13,30 @@ public class CountDown : MonoBehaviour
 
     void Start()
     {
-
         StartCoroutine(StartTime());
         canvasGroup = GetComponentInChildren<CanvasGroup>();
         StartCoroutine(Close());
-
     }
 
     public IEnumerator StartTime()
     {
-
         while (TotalTime >= 0)
         {
             yield return new WaitForSeconds(1);
             TotalTime--;
             TimeText.text = "Time:" + TotalTime;
 
-            mumite = TotalTime / 60; 
+            mumite = TotalTime / 60;
 
-            second = TotalTime % 60; 
+            second = TotalTime % 60;
 
             string length = mumite.ToString();
             if (second >= 10)
             {
-
                 TimeText.text = "0" + mumite + ":" + second;
-            } 
-
+            }
             else
                 TimeText.text = "0" + mumite + ":0" + second;
-
         }
     }
 
@@ -60,8 +52,5 @@ public class CountDown : MonoBehaviour
                 GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
         }
-           
     }
-
-   
 }

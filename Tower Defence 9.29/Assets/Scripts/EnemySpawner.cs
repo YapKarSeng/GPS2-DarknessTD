@@ -12,16 +12,30 @@ public class EnemySpawner : MonoBehaviour
     public float waveRate = 0.3f;
     public float waveRateRight = 1f;
 
-   
+
     void Start()
     {
-        StartCoroutine(WaitPlayer());      
+        StartCoroutine(WaitPlayer());
     }
 
-    IEnumerator WaitPlayer()
+    /*public void Stop()
     {
+        StopCoroutine(WaitPlayer());
+    }*/
+
+    public IEnumerator WaitPlayer()
+    {
+        Time.timeScale = 1;
         yield return new WaitForSecondsRealtime(13);
         StartCoroutine(SpawnEnemy());
+        StartCoroutine(WaitEnemySpawn());
+        //StartCoroutine(SpawnEnemyRight());
+    }
+
+    IEnumerator WaitEnemySpawn()
+    {
+        Time.timeScale = 1;
+        yield return new WaitForSecondsRealtime(6);
         StartCoroutine(SpawnEnemyRight());
     }
 
@@ -31,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < wave.count; i++)
             {
-                GameObject.Instantiate(wave.enemyPrefab, START.position,Quaternion.identity);
+                GameObject.Instantiate(wave.enemyPrefab, START.position, Quaternion.identity);
                 //GameObject.Instantiate(wave.enemyPrefab, RIGHTSTART.position,Quaternion.identity);
                 CountEnemyAlive++;
                 if (i != wave.count - 1)
@@ -42,6 +56,12 @@ public class EnemySpawner : MonoBehaviour
                 yield return 0;
             }
             yield return new WaitForSeconds(waveRate);
+
+            /*while (CountEnemyAlive > 0)
+            {
+                yield return 0;
+            }*/
+
         }
     }
 
@@ -57,12 +77,22 @@ public class EnemySpawner : MonoBehaviour
                 if (i != wave.count - 1)
                     yield return new WaitForSeconds(wave.rate);
             }
-            while (CountEnemyAlive > 1)//If anyone enemy in the map,new enemy will not spawn.
-            {
-                yield return 0;
-            }
+            /* while (CountEnemyAlive > 1)//If anyone enemy in the map,new enemy will not spawn.
+             {
+                 yield return 0;
+             }*/
             yield return new WaitForSeconds(waveRateRight);
         }
+        yield return 0;
+        GameManager.Instance.Win();
     }
 
+    /*void EnemyAllDead()
+    {
+        while (CountEnemyAlive <= 0)
+        {
+            GameManager.Instance.Win();
+        }
+    }*/
 }
+
