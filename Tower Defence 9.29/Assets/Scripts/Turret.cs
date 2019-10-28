@@ -22,9 +22,10 @@ public class Turret : MonoBehaviour
     [SerializeField] private float fireRate;
     private float fireCountdown = 0f;
     public bool useLaser = false;
-    [SerializeField] private int damageOverTime = 30;
+    [SerializeField] private int oriDamageOverTime = 30;
+    [SerializeField] private int increasedDamage = 5;
     public LineRenderer lineRenderer;
-
+    public float curDamageOverTime;
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -74,9 +75,11 @@ public class Turret : MonoBehaviour
 
         lockingTarget();
         
-        if(useLaser)
+        if(useLaser && isActivated == true)
         {
+            curDamageOverTime = oriDamageOverTime;
             Laser();
+            
         }
         else
         {
@@ -100,15 +103,33 @@ public class Turret : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
     void Laser()
-    {
-        target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
+    {     
 
+        curDamageOverTime += increasedDamage * Time.deltaTime;
 
-        if (!lineRenderer.enabled)
-            lineRenderer.enabled = true;
+        if (target.GetComponent<Enemy>() == true)
+        {
+            target.GetComponent<Enemy>().TakeDamage(curDamageOverTime * Time.deltaTime);
+        }
+        else if (target.GetComponent<EnemyRight>() == true)
+        {
+            target.GetComponent<EnemyRight>().TakeDamage(curDamageOverTime * Time.deltaTime);
+        }
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
+        if (isActivated == true && !lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+
+            
+        }
+        else
+        {
+            lineRenderer.enabled = false;
+        }
+
+        isActivated = false;
     }
 
     void Shoot()
