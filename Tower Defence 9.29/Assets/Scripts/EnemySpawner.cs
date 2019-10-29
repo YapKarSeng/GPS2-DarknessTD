@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator WaitEnemySpawn()
     {
         Time.timeScale = 1;
-        yield return new WaitForSecondsRealtime(0);
+        yield return new WaitForSecondsRealtime(6);
         StartCoroutine(SpawnEnemyRight());
     }
 
