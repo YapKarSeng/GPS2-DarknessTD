@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public static int CountEnemyAlive = 0;//Improve founction 01, when before enemy been destory or arrive end point, spwan next wave.
+    //public Wave[] startrates;
     public Wave[] waves;
     public WaveRight[] rightwaves;
     public Transform START;
@@ -35,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator WaitEnemySpawn()
     {
         Time.timeScale = 1;
-        yield return new WaitForSecondsRealtime(6);
+        yield return new WaitForSecondsRealtime(0);
         StartCoroutine(SpawnEnemyRight());
     }
 
@@ -45,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < wave.count; i++)
             {
+                //yield return new WaitForSeconds(wave.startrates);
                 GameObject.Instantiate(wave.enemyPrefab, START.position, Quaternion.identity);
                 //GameObject.Instantiate(wave.enemyPrefab, RIGHTSTART.position,Quaternion.identity);
                 CountEnemyAlive++;

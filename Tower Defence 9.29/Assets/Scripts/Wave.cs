@@ -8,7 +8,9 @@ public class Wave
 {
     public GameObject enemyPrefab;
     public int count;
+    //public float startrate;//
     public float rate;
+    //internal float startrates;//
 }
 
 /*public class WaveRight
