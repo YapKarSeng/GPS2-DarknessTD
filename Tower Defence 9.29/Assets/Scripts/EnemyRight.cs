@@ -22,19 +22,26 @@ public class EnemyRight : MonoBehaviour
 
     void Update()
     {
+        Facing();
         Move();
     }
 
+    void Facing()
+    {
+        Vector3 dir = positions[index].position - transform.position;
+        float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+        transform.LookAt(positions[index].position);
+    }
 
     void Move()
     {
         if (index > positions.Length - 1) return;
-        transform.Translate((positions[index].position - transform.position).normalized * Time.deltaTime * speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
         if (Vector3.Distance(positions[index].position, transform.position) < 0.8f)
         {
             index++;
         }
-        if (index>positions.Length-1)
+        if (index > positions.Length - 1)
         {
             ReachDestination();
         }

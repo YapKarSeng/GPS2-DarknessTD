@@ -175,7 +175,7 @@ public class FieldOfView : MonoBehaviour
              {
                  hit.collider.gameObject.GetComponent<Turret>().isActivated = false;
              }*/
-            Debug.Log("Acticate Turret");
+            //Debug.Log("Acticate Turret");
             hit.collider.gameObject.GetComponent<Turret>().Activateturret();
         }
 

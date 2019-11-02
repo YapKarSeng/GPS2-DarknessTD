@@ -21,7 +21,7 @@ public class Shop : MonoBehaviour
 
     public void SelectArrowTurrent()
     {
-        Debug.Log("Purchase Arrow Turrent");
+        //Debug.Log("Purchase Arrow Turrent");
 
         // build tower (after click build)
             buildManager.SelectTurrentBuild(standardTurrent);

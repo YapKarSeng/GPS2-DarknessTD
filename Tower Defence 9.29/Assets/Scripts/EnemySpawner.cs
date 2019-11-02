@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     public IEnumerator WaitPlayer()
     {
         Time.timeScale = 1;
-        yield return new WaitForSecondsRealtime(13);
+        yield return new WaitForSecondsRealtime(13);//13
         StartCoroutine(SpawnEnemy());
         StartCoroutine(WaitEnemySpawn());
         //StartCoroutine(SpawnEnemyRight());
@@ -47,6 +47,7 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < wave.count; i++)
             {
                 //yield return new WaitForSeconds(wave.startrates);
+
                 GameObject.Instantiate(wave.enemyPrefab, START.position, Quaternion.identity);
                 //GameObject.Instantiate(wave.enemyPrefab, RIGHTSTART.position,Quaternion.identity);
                 CountEnemyAlive++;
