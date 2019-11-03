@@ -20085,11 +20085,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserTowerPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 2320922615580195330, guid: da2fab35664d96b4fb1eaaae4ee1aaec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1616452562687690769, guid: da2fab35664d96b4fb1eaaae4ee1aaec,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4037834264430104286}
   - component: {fileID: 1487812088395539166}
   - component: {fileID: 2320922615580195331}
+  - component: {fileID: 1598172986}
   m_Layer: 8
   m_Name: LaserTowerPrefab
   m_TagString: Untagged
@@ -133,8 +134,10 @@ MonoBehaviour:
   turningSpeed: 0
   fireRate: 0
   useLaser: 1
-  damageOverTime: 30
+  oriDamageOverTime: 30
+  increasedDamage: 5
   lineRenderer: {fileID: 2320922615580195331}
+  curDamageOverTime: 0
 --- !u!120 &2320922615580195331
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -230,6 +233,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!65 &1598172986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320922615580195330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6094651, y: 1.1023662, z: 1.6094651}
+  m_Center: {x: 0, y: 0.5511831, z: 0}
 --- !u!1 &7101265672797162198
 GameObject:
   m_ObjectHideFlags: 0
