@@ -141,7 +141,7 @@ public class Turret : MonoBehaviour
         {
             bullet.Chase(target);
         }
-        SoundManager.PlaySound("");
+        SoundManager.PlaySound("Arrow1");
     }
 
     void OnDrawGizmosSelected()
