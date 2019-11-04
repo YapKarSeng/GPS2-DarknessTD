@@ -166,6 +166,7 @@ public class Turret : MonoBehaviour
         {
             bullet.Chase(target);
         }
+        SoundManager.PlaySound("Rocket1");
     }
 
     void OnDrawGizmosSelected()
