@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 6972369445240449393}
   - component: {fileID: 4006348386873440321}
   m_Layer: 0
-  m_Name: Jiang Shi Model 1
+  m_Name: Jiang Shi Model 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,7 +672,7 @@ Animator:
   m_GameObject: {fileID: 4040730559429375512}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 50b260bbb62dfc34cbdd6b9d3a2f1176, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c3a4971a349e52478780b05fa8efab1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
