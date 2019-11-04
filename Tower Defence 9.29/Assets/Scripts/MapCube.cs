@@ -34,14 +34,15 @@ public class MapCube : MonoBehaviour
 
     private void OnMouseDown()
     {
-            if (!buildManager.CanBuild)
-                return;
 
-            if (turrent != null)
-            {
-                Debug.Log("Can't build there!");
-                return;
-            }
+        if (turrent != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
+
+        if (!buildManager.CanBuild)
+            return;
 
         buildManager.BuildTurrentOn(this);
     }

@@ -19,6 +19,8 @@ public class BuildManager : MonoBehaviour
     public GameObject anotherTurrentPrefab;
 
     private TurrentBlueprint turrentToBuild;
+    private MapCube selectedTurret;
+    public SelectionUI selectionUI;
 
     public bool CanBuild { get { return turrentToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= turrentToBuild.cost; } }
@@ -46,9 +48,19 @@ public class BuildManager : MonoBehaviour
     {
 
     }
+
+    public void SelectNode(MapCube node)
+    {
+        selectedTurret = node;
+        turrentToBuild = null;
+
+        selectionUI.SetTarget(node);
+    }
+
     public void SelectTurrentBuild (TurrentBlueprint turrent)
     {
         turrentToBuild = turrent;
+        selectedTurret = null;
     }
    
 }
