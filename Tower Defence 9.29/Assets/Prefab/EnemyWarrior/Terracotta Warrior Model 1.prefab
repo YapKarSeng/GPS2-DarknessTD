@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 7350441672286588334}
   m_Layer: 0
   m_Name: Terracotta Warrior Model 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,7 +361,7 @@ Animator:
   m_GameObject: {fileID: 2653063921441420751}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ea2e2eb415062c249860cdb09d28acc6, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ca8710715b5af04ea61380ce498a087, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

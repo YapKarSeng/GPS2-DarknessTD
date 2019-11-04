@@ -83,11 +83,17 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 8598220397592093882}
   partToRotate: {fileID: 8598220397205528146}
+  enemyTag: Enemy
   isActivated: 0
   range: 15
-  enemyTag: Enemy
   turningSpeed: 30
   fireRate: 1
+  useLaser: 0
+  oriDamageOverTime: 30
+  increasedDamage: 5
+  lineRenderer: {fileID: 0}
+  curDamageOverTime: 0
+  useRocket: 1
 --- !u!1 &4412081568261088150
 GameObject:
   m_ObjectHideFlags: 0
