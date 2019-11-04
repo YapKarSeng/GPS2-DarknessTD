@@ -21506,6 +21506,8 @@ MonoBehaviour:
   RIGHTSTART: {fileID: 1636628687}
   waveRate: 10
   waveRateRight: 1
+  LeftEnemyStartSpawnTime: 3
+  RightEnemyStartSpawnTime: 10
 --- !u!114 &4488297498850042966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21964,6 +21966,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LaserTowerPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320922615580195330, guid: da2fab35664d96b4fb1eaaae4ee1aaec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1616452562687690769, guid: da2fab35664d96b4fb1eaaae4ee1aaec,
         type: 3}
