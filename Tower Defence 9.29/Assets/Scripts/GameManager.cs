@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         WinUI.SetActive(true);
         winMessage.text = "WIN!";
+        SoundManager.PlaySound("Win1");
     }
 
     private void Update()
