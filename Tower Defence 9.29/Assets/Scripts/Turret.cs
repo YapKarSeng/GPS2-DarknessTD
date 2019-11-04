@@ -26,6 +26,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private int increasedDamage = 5;
     public LineRenderer lineRenderer;
     public float curDamageOverTime;
+    public bool useRocket;
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -81,6 +83,17 @@ public class Turret : MonoBehaviour
             Laser();
             
         }
+        else if(useRocket == true)
+        {
+            if (fireCountdown <= 0f && isActivated == true)
+            {
+                rocketShoot();
+                fireCountdown = 1f / fireRate;
+            }
+
+            fireCountdown -= Time.deltaTime;
+            isActivated = false;
+        }
         else
         {
             if (fireCountdown <= 0f && isActivated == true)
@@ -92,7 +105,7 @@ public class Turret : MonoBehaviour
             fireCountdown -= Time.deltaTime;
             isActivated = false;
         }
-        
+
     }
 
     void lockingTarget()
@@ -133,6 +146,17 @@ public class Turret : MonoBehaviour
     }
 
     void Shoot()
+    {
+        GameObject bulletObject = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletObject.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            bullet.Chase(target);
+        }
+    }
+
+    void rocketShoot()
     {
         GameObject bulletObject = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletObject.GetComponent<Bullet>();
